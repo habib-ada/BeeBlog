@@ -15,6 +15,7 @@ class AdminController extends Controller
         $article = Article::find($id);
         $article->title = $request->title;
         $article->content = $request->content;
+        $article->id_category = $request->id_category;
         $article->save();
         $categories = Categories::all();
         $article = Article::find($id);
