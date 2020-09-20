@@ -93,6 +93,21 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
+                <div>
+                    @isset($articles)
+                    {{ $articles }}
+                    @endisset
+                    @isset($title)
+                    {{ $title }}
+                    @endisset
+                </div>
+                <div>
+                    <form action="/" method="post">
+                        @csrf
+                        <input type="text" name="title">
+                        <button type="submit" value="Submit">Submit</button>
+                    </form>
+                </div>
             </div>
         </div>
     </body>
