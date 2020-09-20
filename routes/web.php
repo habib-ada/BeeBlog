@@ -1,5 +1,8 @@
 <?php
 
+use App\Article;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +14,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::post('/', function (Request $request) {
+    //$title = $request->input('title');
+    $title = $request->title;
+    return view('welcome')->with('title', $title);
 });
+
+Route::get('/', function () {
+    //$articles = DB::table('articles')->get();
+    $articles = Article::all();
+    return view('welcome')->with('articles', $articles);
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
