@@ -23,7 +23,7 @@
             <th scope="row">{{ $article->id }}</th>
             <td>{{ $article->title }}</td>
             <td>{{ $article->content }}</td>
-          <td><a href="{{ route('oneArticle', ['id'=>$article->id]) }}">Detail</a>&nbsp<a href="#">Edit</a>&nbsp<a href="{{ route('deleteOneArticle', ['id'=>$article->id]) }}">Delete</a></td>
+          <td><a href="{{ route('oneArticle', ['id'=>$article->id]) }}">Detail</a>&nbsp<a href="{{ route('oneArticleToEdit', ['id'=>$article->id]) }}">Edit</a>&nbsp<a href="{{ route('deleteOneArticle', ['id'=>$article->id]) }}">Delete</a></td>
           </tr>
           @endforeach
         </tbody>

@@ -12,6 +12,8 @@
 */
 
 Route::prefix('admin')->middleware('auth')->group(function() {
+    Route::post('/articles/edit/{id}', 'AdminController@saveEditOneArticle')->name('saveEdit');
+    Route::get('/articles/edit/{id}','AdminController@showOneArticleToEdit')->name('oneArticleToEdit');
     Route::get('/articles/delete/{id}', 'AdminController@deleteOneArticle')->name('deleteOneArticle');
     Route::post('/articles/new', 'AdminController@saveNewArticle');
     Route::get('/articles/new', 'AdminController@showFormNewArticle')->name('addOneArticle');

@@ -10,6 +10,25 @@ use Illuminate\Routing\Controller;
 
 class AdminController extends Controller
 {
+    public function saveEditOneArticle($id, Request $request)
+    {
+        $article = Article::find($id);
+        $article->title = $request->title;
+        $article->content = $request->content;
+        $article->save();
+        $categories = Categories::all();
+        $article = Article::find($id);
+        return view('admin::editonearticle', ['action' => true, 'categories' => $categories, 'article' => $article]);
+        //return $id;
+    }
+
+    public function showOneArticleToEdit($id)
+    {
+        $categories = Categories::all();
+        $article = Article::find($id);
+        return view('admin::editonearticle', ['categories' => $categories, 'article' => $article]);
+    }
+
     public function deleteOneArticle($id)
     {
         Article::destroy($id);
