@@ -12,6 +12,11 @@
 */
 
 Route::prefix('admin')->middleware('auth')->group(function() {
+    Route::get('/articles/detail/{id}','AdminController@showOneArticle')->name('oneArticle');
+    Route::get('/articles','AdminController@showArticles');
+    /*Route::get('/articles', function () {
+        return view('admin::indexarticles');
+    });*/
     Route::get('/', 'AdminController@index');
     Route::get('/tes', function () {
         return view('admin::indexmaster');

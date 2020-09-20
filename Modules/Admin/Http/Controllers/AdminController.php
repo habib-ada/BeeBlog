@@ -2,12 +2,24 @@
 
 namespace Modules\Admin\Http\Controllers;
 
+use App\Article;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 class AdminController extends Controller
 {
+    public function showOneArticle($id){
+        $article = Article::find($id);
+        //return $article;
+        return view('admin::oneArticle')->with('article', $article);
+    }
+
+    public function showArticles(){
+        $articles = Article::all();
+        return view('admin::indexarticles')->with('articles', $articles);
+    }
+
     /**
      * Display a listing of the resource.
      * @return Renderable
