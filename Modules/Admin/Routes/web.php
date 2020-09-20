@@ -12,8 +12,11 @@
 */
 
 Route::prefix('admin')->middleware('auth')->group(function() {
+    Route::get('/articles/delete/{id}', 'AdminController@deleteOneArticle')->name('deleteOneArticle');
+    Route::post('/articles/new', 'AdminController@saveNewArticle');
+    Route::get('/articles/new', 'AdminController@showFormNewArticle')->name('addOneArticle');
     Route::get('/articles/detail/{id}','AdminController@showOneArticle')->name('oneArticle');
-    Route::get('/articles','AdminController@showArticles');
+    Route::get('/articles','AdminController@showArticles')->name('showArticles');
     /*Route::get('/articles', function () {
         return view('admin::indexarticles');
     });*/

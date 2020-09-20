@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Detail Article</h1>
-    <a class="btn btn-primary" href="#">New Article</a>
+<a class="btn btn-primary" href="{{ route('addOneArticle') }}">New Article</a>
     <table class="table">
         <thead class="thead-dark">
           <tr>

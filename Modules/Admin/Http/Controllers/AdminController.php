@@ -3,19 +3,52 @@
 namespace Modules\Admin\Http\Controllers;
 
 use App\Article;
+use App\Categories;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 class AdminController extends Controller
 {
-    public function showOneArticle($id){
-        $article = Article::find($id);
-        //return $article;
-        return view('admin::oneArticle')->with('article', $article);
+    public function deleteOneArticle($id)
+    {
+        Article::destroy($id);
+        $articles = Article::all();
+        return view('admin::indexarticles', ['action' => true, 'id' => $id, 'articles' => $articles]);
     }
 
-    public function showArticles(){
+    public function saveNewArticle(Request $request)
+    {
+        $judul = $request->title;
+        $article = new Article();
+        $article->title = $request->title;
+        $article->content = $request->content;
+        $article->id_category = $request->id_category;
+        $article->save();
+
+        $categories = Categories::all();
+        return view('admin::formnewarticle', ['categories' => $categories, 'action' => true, 'judul' => $judul]);
+        //return view('admin::formnewarticle')->with('categories',$categories);
+        //return 'Berhasil menyimpan';
+        //return $request;
+    }
+
+    public function showFormNewArticle()
+    {
+        $categories = Categories::all();
+        return view('admin::formnewarticle')->with('categories',$categories);
+        //return 'Halaman Tambah Artikel Baru';
+    }
+
+    public function showOneArticle($id)
+    {
+        $article = Article::find($id);
+        return view('admin::oneArticle')->with('article', $article);
+        //return $article;
+    }
+
+    public function showArticles()
+    {
         $articles = Article::all();
         return view('admin::indexarticles')->with('articles', $articles);
     }
