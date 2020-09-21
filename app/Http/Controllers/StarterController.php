@@ -9,8 +9,13 @@ class StarterController extends Controller
 {
     public function showHome()
     {
-        $article = Article::orderBy('id', 'desc')->first();
-        return view('blog')->with('article', $article);
+        $allArticles = Article::all();
+        $data['allArticles'] = $allArticles;
+        $lastestArticle = Article::orderBy('id', 'desc')->first();
+        $data['lastestArticle'] = $lastestArticle;
+        //return $data;
+        return view('blog', $data);
+        //return view('blog')->with('lastestArticle', $lastestArticle);
         //return view('blog')->with('articles', $articles);
         //return 'sip';
     }
