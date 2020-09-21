@@ -27,7 +27,7 @@
             </h3>
             @foreach ($allArticles as $article)
             <div class="blog-post">
-                <h2 class="blog-post-title">{{ $article->title }}</h2>
+                <h2 class="blog-post-title"><a href="{{ route('publicOneArticle', ['id' => $article->id])}}">{{ $article->title }}</a></h2>
                 <p class="blog-post-meta">
                     December 14, 2013 by <a href="#">Chris</a>
                 </p>
