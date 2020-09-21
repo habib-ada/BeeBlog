@@ -14,17 +14,19 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::post('/', function (Request $request) {
+/*Route::post('/', function (Request $request) {
     //$title = $request->input('title');
     $title = $request->title;
     return view('welcome')->with('title', $title);
-});
+});*/
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     //$articles = DB::table('articles')->get();
     $articles = Article::all();
-    return view('welcome')->with('articles', $articles);
-});
+    return view('blog')->with('articles', $articles);
+});*/
+
+Route::get('/', 'StarterController@showHome');
 
 Auth::routes();
 
