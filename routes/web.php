@@ -26,7 +26,7 @@ use Illuminate\Http\Request;
     return view('blog')->with('articles', $articles);
 });*/
 
-Route::get('/', 'StarterController@showHome');
+Route::get('/', 'StarterController@showHome')->name('start');
 
 Auth::routes();
 
