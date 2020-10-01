@@ -11,7 +11,14 @@
 |
 */
 
-Route::prefix('article')->group(function() {
+use Modules\Article\TestBusiness\Accessories;
+
+Route::prefix('article')->group(function () {
     Route::get('/', 'ArticleController@index')->name('publicAllArticle');
     Route::get('/{id}', 'ArticleController@showOneArticle')->name('publicOneArticle');
+    Route::get('/test/test', function () {
+        $objAcc = new Accessories();
+        return $objAcc->jumlah;
+        //return 'tes';
+    });
 });
