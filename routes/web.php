@@ -31,3 +31,11 @@ Route::get('/', 'StarterController@showHome')->name('start');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/gallery', function () {
+    return 'gallery';
+});
+
+Route::get('/stories', function () {
+    return 'stories';
+});
