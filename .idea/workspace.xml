@@ -23,7 +23,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3971e6e2-ba08-4625-8132-38e4700c3c4d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <list id="64f9c1e6-7738-4063-8bf5-1af768eb43cd" name="Revert &quot;add search and stories&quot;" comment="Revert &quot;add search and stories&quot;&#10;&#10;This reverts commit 972018be" />

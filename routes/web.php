@@ -39,3 +39,11 @@ Route::get('/gallery', function () {
 Route::get('/stories', function () {
     return 'stories';
 });
+
+Route::get('/search', function () {
+    return 'stories';
+});
+
+Route::get('/review', function () {
+    return 'review';
+});
